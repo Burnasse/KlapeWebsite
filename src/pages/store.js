@@ -31,7 +31,7 @@ const StorePage = (props) => {
           </div>
         </div>
 
-        <Gallery classname="bg-black" images={images} initialValue={params.get("value")} />
+        <Gallery images={images} initialValue={params.get("value")} />
       </>
       <Footer />
     </main>

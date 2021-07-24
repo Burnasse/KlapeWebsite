@@ -64,7 +64,7 @@ const Navbar = () => {
     <div>
       <nav
         id="header"
-        className="absolute w-full z-10 top-0 text-white bg-trueGray-900 bg-opacity-50"
+        className="absolute w-full z-10 top-0 text-white bg-black bg-opacity-30"
       >
         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           <div className="pl-4 flex items-center">
