@@ -13,7 +13,7 @@ const StorePage = (props) => {
       <title>Store</title>
       <Navbar />
       <>
-        <div className="bg-gradient-to-b from-trueGray-900 to-black container px-3 mx-auto flex flex-wrap flex-col text-center p-24 text-white">
+        <div className="bg-gradient-to-b from-trueGray-900 to-black px-3 mx-auto flex flex-wrap flex-col text-center p-24 text-white">
           <h1 className="text-5xl font-bold leading-tight font-sans">
             Informations Tarifaires <span className="text-2xl">(plus de détails)</span> 
           </h1>
@@ -31,7 +31,7 @@ const StorePage = (props) => {
           </div>
         </div>
 
-        <Gallery images={images} initialValue={params.get("value")} />
+        <Gallery classname="bg-black" images={images} initialValue={params.get("value")} />
       </>
       <Footer />
     </main>

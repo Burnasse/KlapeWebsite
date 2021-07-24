@@ -17,7 +17,7 @@ module.exports = {
       }),
       colors: {
         trueGray: colors.trueGray,
-        indigo: colors.indigo,
+        gray: colors.gray
       },
       fontFamily: {
         sans: ["Poiret One", "sans-serif"]
