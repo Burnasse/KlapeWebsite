@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/Layout";
+import { graphql } from "gatsby";
 
 const NotFoundPage = () => {
   return (
@@ -21,3 +22,18 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
+
+
+export const translationQuery = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

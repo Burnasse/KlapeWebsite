@@ -16,7 +16,6 @@ const SEO = ({ title, description, image, article }) => {
       defaultImage,
       siteUrl,
       siteLanguage,
-      ogLanguage,
       } = site.siteMetadata
       const seo = {
         title: title || defaultTitle,
@@ -66,7 +65,6 @@ const query = graphql`
         defaultImage: image
         siteUrl
         siteLanguage
-        ogLanguage
       }
     }
   }

@@ -70,7 +70,7 @@ const Navbar = () => {
     },
     {
       name: t("Exhibitions"),
-      href: "/exposure/",
+      href: "/exhibitions/",
     },
     {
       name: t("Biography"),
