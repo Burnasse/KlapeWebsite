@@ -1,55 +1,70 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
+import { Link } from "gatsby";
+import { isMobile } from "react-device-detect";
 
 const svgData = {
   corse: {
-    className:"w-48 h-40  lg:w-72 lg:h-80",
+    className: "w-48 h-40  lg:w-72 lg:h-80",
     viewBox: "0 0 500 900",
   },
   reunion: {
-    className:"w-48 h-40  lg:w-96 lg:h-80",
+    className: "w-48 h-40  lg:w-96 lg:h-80",
     viewBox: "0 0 850 900",
   },
   astro: {
-    className:"w-48 h-40  lg:w-96 lg:h-80",
+    className: "w-48 h-40  lg:w-96 lg:h-80",
     viewBox: "0 0 660 740",
   },
   paca: {
-    className:"w-48 h-40  lg:w-96 lg:h-80",
+    className: "w-48 h-40  lg:w-96 lg:h-80",
     viewBox: "0 0 435 465",
   },
   architect: {
-    className:"w-48 h-40  lg:w-96 lg:h-80",
+    className: "w-48 h-40  lg:w-96 lg:h-80",
     viewBox: "0 0 515 405",
-  }
+  },
 };
 
 const svgAnim = (path, svgRef, duration) => {
-
-  return(
-  <InView threshold={0.75} triggerOnce>
-    {({ ref, inView }) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={svgData[svgRef].viewBox}
-        className={svgData[svgRef].className}
-      >
-        <motion.path
-          ref={ref}
-          d={path}
-          fill="transparent"
-          strokeWidth="5"
-          stroke="white"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={inView ? { pathLength: 1 } : { pathLength: 0 }}
-          transition={ duration ? { duration: duration } : { duration: 2 } }
-        />
-      </svg>
-    )}
-  </InView>
-  )
+  return isMobile ? (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={svgData[svgRef].viewBox}
+      className={svgData[svgRef].className}
+    >
+      <path
+        d={path}
+        fill="transparent"
+        strokeWidth="5"
+        stroke="white"
+        strokeLinecap="round"
+      />
+    </svg>
+  ) : (
+    <InView threshold={0.75} triggerOnce>
+      {({ ref, inView }) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox={svgData[svgRef].viewBox}
+          className={svgData[svgRef].className}
+        >
+          <motion.path
+            ref={ref}
+            d={path}
+            fill="transparent"
+            strokeWidth="5"
+            stroke="white"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={inView ? { pathLength: 1 } : { pathLength: 0 }}
+            transition={duration ? { duration: duration } : { duration: 2 }}
+          />
+        </svg>
+      )}
+    </InView>
+  );
 };
 
 const CardSection = ({ title, path, img, svgRef, right, duration }) => {
@@ -75,9 +90,12 @@ const CardSection = ({ title, path, img, svgRef, right, duration }) => {
 
   const content = right ? (
     <>
-      <a href={"/store?value=" + svgRef} className="px-10 w-full h-full flex flex-row items-center justify-center md:justify-start hover:bg-black hover:bg-opacity-10">
+      <Link
+        to={"/store?value=" + svgRef}
+        className="px-10 w-full h-full flex flex-row items-center justify-center md:justify-start hover:bg-black hover:bg-opacity-10"
+      >
         {buttonComp(right)}
-      </a>
+      </Link>
       <div className="w-full h-full flex flex-col md:flex-row items-center justify-end">
         <div className="text-4xl lg:text-5xl xl:text-7xl leading-tight text-white">
           {title}
@@ -97,16 +115,23 @@ const CardSection = ({ title, path, img, svgRef, right, duration }) => {
           {title}
         </div>
       </div>
-      <a href={"/store?value=" + svgRef} className="px-10 w-full h-full flex flex-row items-center justify-center md:justify-end hover:bg-black hover:bg-opacity-10">
+      <Link
+        to={"/store?value=" + svgRef}
+        className="px-10 w-full h-full flex flex-row items-center justify-center md:justify-end hover:bg-black hover:bg-opacity-10"
+      >
         {buttonComp()}
-      </a>
+      </Link>
     </>
   );
 
   return (
     <div
+      role="presentation"
+      onDragStart={(e) => e.preventDefault()}
+      onContextMenu={(e) => e.preventDefault()}
       className={
-        "w-full mx-auto flex flex-col md:flex-row items-center bg-cover bg-center " + img
+        "w-full mx-auto flex flex-col md:flex-row items-center bg-cover bg-center " +
+        img
       }
     >
       {content}

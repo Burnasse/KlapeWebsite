@@ -1,0 +1,50 @@
+{
+  "Home": "Accueil",
+  "Store": "Galerie boutique",
+  "Benefits": "Prestations",
+  "Exhibitions": "Expositions",
+  "Biography": "Biographie",
+  "Articles": "Articles",
+  "Tutorials": "Tutoriels",
+
+  "Antoine Mangiavacca store": "Boutique Antoine Mangiavacca",
+  "Antoine Mangiavacca biography": "Biographie Antoine Mangiavacca",
+  "Benefits Antoine Mangiavacca": "Prestations Antoine Mangiavacca",
+
+  "Photographer, Camera Operator": "Photographe, Opérateur Caméra",
+  "Discover": "Découvrir",
+
+  "Corsica": "La Corse",
+  "Reunion island": "La Réunion",
+  "PACA": "Région PACA",
+  "Astrophotography": "Astrophotographie",
+  "Architecture": "Architecture",
+
+  "Pricing information": "Informations tarifaires",
+  "PricingDesc": "La majorité de mes images sont disponibles aux formats 45x30, 60x40, 70x50 et 90x60, voici les prix pour ces dimensions là (hors frais de port) :",
+  "Fine art": "Tirage Fine art, finition mat*",
+  "Lamination": "Contrecollage sur support rigide",
+  "More details": "Plus de détails",
+  "here": "ici",
+  "Frame not included": "*Cadre non inclus",
+  "Enter a keyword here": "Enter un mot clé",
+  "Search": "Rechercher...",
+
+  "BiographyDesc1": "Salut ! Moi c'est Antoine et je suis passionné par la photographie, particulièrement tout ce qui tourne autour de la Nature (photographie de paysages, orages, astrophotographie, aérienne ..) J'aime découvrir de nouvelles méthodes de prises de vues, telle que la photographie infrarouge et capturer des images surréalistes de par leurs lumières et leurs perspectives.",
+  "BiographyDesc2": "Je suis titulaire d'un BTS audiovisuel et d'une formation professionnelle de photographe pour travailler en parallèle la photographie et le cinéma",
+  "BiographyDesc3": "Mon activité principale est la vente de tirages, qu'il est possible d'acquérir via",
+  "My dedicated page": " cette page dédiée",
+  "Contact me": "Contactez moi",
+
+  "Name": "Nom",
+  "Message": "Message",
+  "Email": "Email",
+  "Send": "Envoyer",
+
+  "Confidentiality policy": "Politque de confidentialité",
+
+  "Page not found": "Page introuvable",
+  "Sorry": "Désolé",
+  "we couldn’t find what you were looking for.": "Nous n'avons pas pu trouver ce que vous recherchiez",
+  "Go home": "Retourner à l'accueil."
+}

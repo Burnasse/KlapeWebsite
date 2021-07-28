@@ -1,2 +1,2 @@
 import './src/styles/global.css';
-import "@fontsource/poiret-one"
+import "@fontsource/poiret-one";

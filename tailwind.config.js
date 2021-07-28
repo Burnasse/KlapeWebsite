@@ -21,7 +21,7 @@ module.exports = {
         black: colors.black
       },
       fontFamily: {
-        sans: ["Poiret One", "sans-serif"]
+        sans: ["Poiret One", "sans-serif"],
       }
     },
   },

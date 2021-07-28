@@ -1,35 +1,40 @@
+import { Link } from "gatsby";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
-    <footer className="bg-trueGray-900">
-      <div className="container mx-auto px-8 divide-y">
+    <footer className="bg-trueGray-900 pt-10">
+      <hr className="border-b border-white border-2 border-opacity-50" />
+      <div className="container mx-auto px-8 divide-y text-white py-5">
         <div className="w-full flex flex-col md:flex-row py-6">
-          <div className="flex-1 mb-6 text-black">
-            <a
-              className="text-white no-underline hover:no-underline font-bold text-3xl lg:text-4xl"
-              href="/"
+          <div className="flex-1 mb-6">
+            <Link
+              className="no-underline uppercase hover:no-underline font-bold text-3xl lg:text-4xl"
+              to="/"
             >
               Klape
-            </a>
+            </Link>
           </div>
           <div className="flex-1">
-            <p className="uppercase text-white font-bold text-xl md:mb-6">
+            <p className="uppercase font-bold text-xl md:mb-6">
               Legal
             </p>
             <ul className="list-reset mb-6">
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="/"
-                  className="no-underline hover:underline text-white hover:text-gray-500"
+                <Link
+                  to="/confidentiality-policy"
+                  className="underline hover:text-blue-500"
                 >
-                  Politque de confidentialité
-                </a>
+                  {t("Confidentiality policy")}
+                </Link>
               </li>
             </ul>
           </div>
           <div className="flex-1">
-            <p className="uppercase text-white font-bold text-xl md:mb-6">
+            <p className="uppercase font-bold text-xl md:mb-6">
               Social
             </p>
             <ul className="list-reset mb-6">
@@ -38,7 +43,7 @@ const Footer = () => {
                   href="https://www.facebook.com/klapeful/"
                   target="_blank"
                   rel="noreferrer"
-                  className="no-underline hover:underline text-white hover:text-gray-500"
+                  className="underline hover:text-blue-500"
                 >
                   Facebook
                 </a>
@@ -48,7 +53,7 @@ const Footer = () => {
                   href="https://www.instagram.com/klapefull/"
                   target="_blank"
                   rel="noreferrer"
-                  className="no-underline hover:underline text-white hover:text-gray-500"
+                  className="underline hover:text-blue-500"
                 >
                   Instagram
                 </a>
@@ -56,31 +61,23 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex-1">
-            <p className="uppercase text-white font-bold text-xl md:mb-6">
+            <p className="uppercase font-bold text-xl md:mb-6">
               Klape
             </p>
             <ul className="list-reset mb-6">
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="/"
-                  className="no-underline hover:underline text-white hover:text-gray-500"
-                >
-                  À propos
-                </a>
-              </li>
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="/"
-                  className="no-underline hover:underline text-white hover:text-gray-500"
+                <Link
+                  to="/"
+                  className="underline hover:text-blue-500"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="text-white p-4 text-1xl text-center">
-          &copy; 2020 Mangiavacca Antoine{" "}
+        <div className=" p-4 text-1xl text-center">
+          &copy; 2020 Mangiavacca Antoine
         </div>
       </div>
     </footer>

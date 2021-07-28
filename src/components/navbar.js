@@ -1,39 +1,12 @@
 import { motion, useCycle } from "framer-motion";
 import * as React from "react";
-import { useLocation } from '@reach/router';
+import { useLocation } from "@reach/router";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import LanguageSwitch from "./languageSwitch";
+import { Link } from "gatsby";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
-const barData = [
-  {
-    name: "Accueil",
-    href: "/",
-  },
-  {
-    name: "Galerie boutique",
-    href: "/store/",
-  },
-  {
-    name: "Prestations",
-    href: "/benefits/",
-  },
-  {
-    name: "Expositions",
-    href: "/exposure/",
-  },
-  {
-    name: "Biographie",
-    href: "/biography/",
-  },
-  {
-    name: "Articles",
-    href: "/articles/",
-  },
-  {
-    name: "Tutoriels",
-    href: "/tutorials/",
-  },
-];
-
-const sideBar = (location) => (
+const sideBar = (location, barData, language) => (
   <motion.div
     className="lg:hidden absolute inline-block z-50 m-2 px-1 py-1 inset-0 bg-black bg-opacity-80 rounded-md top-10"
     animate={{ scaleY: [0, 1] }}
@@ -46,34 +19,87 @@ const sideBar = (location) => (
       {barData.map((data) => {
         return (
           <li key={data.name + "side"}>
-            <a className={"inline-block py-2 px-4 " + (location.pathname === (data.href) ? "font-bold text-white" : "text-trueGray-200")} href={data.href}>
+            <Link
+              className={
+                "inline-block py-2 px-4 " +
+                (location.pathname === data.href || location.pathname === "/" + language + data.href
+                  ? "font-bold text-white"
+                  : "text-trueGray-200")
+              }
+              to={data.href}
+            >
               {data.name}
-            </a>
+            </Link>
           </li>
         );
       })}
+      <li><LanguageSwitch /></li>
     </ul>
   </motion.div>
 );
 
 const Navbar = () => {
+  const { t } = useTranslation();
+  const { language } = useI18next()
+
   const [isOpen, setBarOpen] = useCycle(false, true);
-  const location = useLocation()
+  const location = useLocation();
+
+  const barData = [
+    {
+      name: t("Home"),
+      href: "/",
+    },
+    {
+      name: t("Store"),
+      href: "/store/",
+    },
+    {
+      name: t("Benefits"),
+      href: "/benefits/",
+      subs: [
+        {
+          name: "Les tirages",
+          href: "/benefits/",
+        },
+        {
+          name: "Détails",
+          href: "/benefits/",
+        },
+      ],
+    },
+    {
+      name: t("Exhibitions"),
+      href: "/exposure/",
+    },
+    {
+      name: t("Biography"),
+      href: "/biography/",
+    },
+    {
+      name: t("Articles"),
+      href: "/articles/",
+    },
+    {
+      name: t("Tutorials"),
+      href: "/tutorials/",
+    },
+  ];
 
   return (
-    <div>
+    <>
       <nav
         id="header"
         className="absolute w-full z-10 top-0 text-white bg-black bg-opacity-30"
       >
         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           <div className="pl-4 flex items-center">
-            <a
-              className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-              href="/"
+            <Link
+              className="uppercase text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+              to="/"
             >
               <div>Klape</div>
-            </a>
+            </Link>
           </div>
           <div className="block lg:hidden pr-4">
             <button
@@ -99,22 +125,28 @@ const Navbar = () => {
               {barData.map((data) => {
                 return (
                   <li key={data.name} className="mr-3">
-                    <a
-                      className={"inline-block py-2 px-4 no-underline lg:text-lg hover:text-trueGray-500 rounded-lg " + (location.pathname === data.href ? "font-bold text-white" : "text-trueGray-200")}
-                      href={data.href}
+                    <Link
+                      className={
+                        "inline-block py-2 px-4 no-underline lg:text-lg hover:text-trueGray-500 rounded-lg " +
+                        (location.pathname === data.href || location.pathname === "/" + language + data.href
+                          ? "font-bold text-white"
+                          : "text-trueGray-200")
+                      }
+                      to={data.href}
                     >
                       {data.name}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
+              <li><LanguageSwitch /></li>
             </ul>
           </div>
         </div>
         <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
-        {isOpen ? sideBar(location) : ""}
+        {isOpen ? sideBar(location, barData, language) : ""}
       </nav>
-    </div>
+    </>
   );
 };
 export default Navbar;

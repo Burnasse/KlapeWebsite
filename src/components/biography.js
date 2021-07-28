@@ -1,70 +1,69 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { useTranslation } from "react-i18next";
 
 const Biography = () => {
-  return (
-    <div>
+  const { t } = useTranslation();
 
+  return (
+    <>
       <div className="w-full mx-auto flex flex-col md:flex-row items-center">
         <StaticImage
           className="w-3/4 md:w-full md:mx-3"
           src="../assets/images/bioImg.webp"
           alt="Bio"
+          onDragStart={(e) => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
         />
         <div className="text-white">
         <h1 className="my-4 pt-10 md:w-3/5 block m-auto text-6xl text-white text-center font-bold">
-        Biographie
+        {t("Biography")}
       </h1>
           <p className="text-xl py-5 px-3">
-            Salut ! Moi c'est Antoine et je suis passionné par la photographie,
-            particulièrement tout ce qui tourne autour de la Nature
-            (photographie de paysages, orages, astrophotographie, aérienne ..)
-            J'aime découvrir de nouvelles méthodes de prises de vues, telle que
-            la photographie infrarouge et capturer des images surréalistes de
-            par leurs lumières et leurs perspectives.
+            {t("BiographyDesc1")}
           </p>
           <p className="text-xl py-5 px-3">
-            Je suis titulaire d'un BTS audiovisuel et d'une formation
-            professionnelle de photographe pour travailler en parallèle la
-            photographie et le cinéma.
+            {t("BiographyDesc2")}
           </p>
           <p className="text-xl py-5 px-3">
-            Mon activé principale est la vente de tirages, qu'il est possible
-            d'acquérir via{" "}
-            <a className="font-bold hover:underline" href="/store">
-              cette page dédiée
+            {t("BiographyDesc3")}
+            <a className="font-bold underline hover:text-blue-500" href="/store">
+              {t("My dedicated page")}
             </a>
             .
           </p>
           <div className="text-center mt-5">
-            <h2 className="font-bold text-3xl">Contactez moi</h2>
-            <p>Klape@hotmail.fr</p> 
+            <h2 className="font-bold text-3xl">{t("Contact me")}</h2>
+            <a href="mailto:Klape@hotmail.fr" className="font-bold underline hover:text-blue-500">Klape@hotmail.fr</a> 
           </div>
 
           <form method="post" action="#" className="grid grid-cols-2 grid-rows-2 gap-2 m-4">
             <input
               type="text"
-              placeholder="Name*"
+              placeholder={t("Name") + "*"}
+              required={true}
               className="bg-trueGray-900 border-2 text-white py-1 px-5 rounded-md my-3"
             />
             <textarea
               rows="2"
-              placeholder="Message"
+              placeholder={t("Message")}
               className="bg-trueGray-900 border-2 text-white py-1 px-5 rounded-md"
             />
             <input
               type="email"
-              placeholder="Email*"
+              placeholder={t("Email") + "*"}
+              required={true}
               className="bg-trueGray-900 border-2 text-white py-1 px-5 rounded-md my-3"
             />
             <input
               type="submit"
-              className="bg-white bg-opacity-10 border-2 text-white py-1 px-5 rounded-md m-3"
+              value={t("Send")}
+              className="bg-white bg-opacity-10 border-2 text-white py-1 px-5 rounded-md m-3 hover:bg-opacity-20"
             />
           </form>
         </div>
       </div>      ​
-    </div>
+    </>
   );
 };
 
