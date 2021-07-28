@@ -66,8 +66,9 @@ const Gallery = ({ images, initialValue }) => {
             >
               {data.map((image, index) => {
                 const imageData = getImage(image.node.featuredImg);
+                
                 // If the image link doesn't exist, we don't need to create GatsbyImage
-
+                if(!imageData) return "";
 
                 return (
                   <GatsbyImage

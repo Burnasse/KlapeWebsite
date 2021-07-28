@@ -9,12 +9,14 @@ const NotFoundPage = () => {
       <div className="p-24 text-white text-center">
         <h1 className="text-5xl my-10">Page not found</h1>
         <p className="text-xl">
-          Sorry 
+          Sorry
           <span role="img" aria-label="Pensive emoji">
             😔
           </span>
           we couldn’t find what you were looking for.
-          <p className="font-bold underline hover:text-blue-500"><Link to="/">Go home</Link>.</p>
+        </p>
+        <p className="font-bold underline hover:text-blue-500">
+          <Link to="/">Go home</Link>.
         </p>
       </div>
     </Layout>
@@ -22,7 +24,6 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
-
 
 export const translationQuery = graphql`
   query($language: String!) {
