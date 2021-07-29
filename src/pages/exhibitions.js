@@ -11,6 +11,7 @@ const GetExposures = (data) => {
 
 const ExhibitionsPage = (props) => {
   const { t } = useTranslation();
+  if(!props.data) return null
   const data = props.data.allPrismicExposition.edges;
   const exhibitions = GetExposures(data);
 
@@ -19,7 +20,7 @@ const ExhibitionsPage = (props) => {
       <div className="p-24 text-white">
         {exhibitions.map((exhibition) => (
           <div key={exhibition.node.id} className="py-10">
-            <section
+            <div
               dangerouslySetInnerHTML={{
                 __html: exhibition.node.data.title.html,
               }}
@@ -29,7 +30,7 @@ const ExhibitionsPage = (props) => {
               src={exhibition.node.data.image.fluid.src}
               alt={exhibition.node.data.image.alt}
             />
-            <section
+            <div
               dangerouslySetInnerHTML={{
                 __html: exhibition.node.data.description.html,
               }}

@@ -25,10 +25,18 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: ['auto', 'webp', 'jpg']
+        },
+        failOnError: false
+      }
+    },
     {
       resolve: "gatsby-source-prismic",
       options: {
