@@ -75,7 +75,7 @@ export const imagesQuery = graphql`
         node {
           featuredImg {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
             }
           }
           name
