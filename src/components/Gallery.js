@@ -4,6 +4,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 import Masonry from "react-masonry-css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useTranslation } from "react-i18next";
+import InView from "react-intersection-observer";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -15,6 +16,10 @@ const breakpointColumnsObj = {
 const options = {
   buttons: {
     showDownloadButton: false,
+    showThumbnailsButton: false,
+  },
+  thumbnails: {
+    showThumbnails: false,
   },
 };
 
@@ -66,17 +71,17 @@ const Gallery = ({ images, initialValue }) => {
             >
               {data.map((image, index) => {
                 const imageData = getImage(image.node.featuredImg);
-                
+
                 // If the image link doesn't exist, we don't need to create GatsbyImage
-                if(!imageData) return "";
+                if (!imageData) return "";
 
                 return (
-                  <GatsbyImage
-                    key={index}
-                    image={imageData}
-                    alt={image.node.name}
-                    className="m-3 hover:opacity-50"
-                  />
+                    <GatsbyImage
+                      key={index}
+                      image={imageData}
+                      alt={image.node.name}
+                      className="m-3 hover:opacity-50"
+                    />
                 );
               })}
             </Masonry>

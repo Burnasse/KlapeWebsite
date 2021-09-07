@@ -27,13 +27,13 @@ const StorePage = (props) => {
           <div className="font-bold italic border-none text-lg">
           {t("Lamination")}
           </div>
-          <div className="font-bold text-lg">45x30cm</div> <div>75€</div>{" "}
+          <div className="font-bold text-lg">45x30cm</div> <div>75€</div>
           <div>145€</div>
-          <div className="font-bold text-lg">60x40cm</div> <div>90€</div>{" "}
+          <div className="font-bold text-lg">60x40cm</div> <div>90€</div>
           <div>175€</div>
-          <div className="font-bold text-lg">70x50cm</div> <div>125€</div>{" "}
+          <div className="font-bold text-lg">70x50cm</div> <div>125€</div>
           <div>200€</div>
-          <div className="font-bold text-lg">90x60cm</div> <div>140€</div>{" "}
+          <div className="font-bold text-lg">90x60cm</div> <div>140€</div>
           <div>250€</div>
         </div>
         <div className="flex flex-row">
@@ -75,7 +75,7 @@ export const imagesQuery = graphql`
         node {
           featuredImg {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP], quality: 35)
             }
           }
           name
