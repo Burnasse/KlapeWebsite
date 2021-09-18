@@ -1,6 +1,6 @@
 ## Klape Website
 
-Photographer's website made with gatsby, TailwindCss and Framer Motion.
+Photographer's website made with gatsby, TailwindCss, Framer Motion and prismic CMS.
 
 All images in this website are copyrighted.
 
